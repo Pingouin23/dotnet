@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\IDomainEvent.cs" />
+    <Compile Include="Domain\IEventPublisher.cs" />
+    <Compile Include="Domain\Message.cs" />
     <Compile Include="Domain\MessagePublished.cs" />
     <Compile Include="Domain\TimelineMessage.cs" />
     <Compile Include="Domain\TimelineMessageProjections.cs" />

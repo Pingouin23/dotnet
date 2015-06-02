@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Messaging.Domain;
 
-namespace Messaging.Tests.Domain
+namespace Messaging.Domain
 {
-    public class MessagePublished
+    public struct MessagePublished : IDomainEvent
     {
         private readonly UserId _ownerId;
         private readonly DateTime _publishDate;
@@ -15,7 +11,7 @@ namespace Messaging.Tests.Domain
         private readonly int _messageId;
         public int NbRepublish { get; set; }
 
-        public MessagePublished(UserId ownerId, DateTime publishDate, UserId authorId, string content, int messageId)
+        public MessagePublished(UserId ownerId, DateTime publishDate, UserId authorId, string content, int messageId) : this()
         {
             _ownerId = ownerId;
             _publishDate = publishDate;
@@ -39,7 +35,6 @@ namespace Messaging.Tests.Domain
         {
             get { return _messageId; }
         }
-
 
         public UserId AuthorId
         {

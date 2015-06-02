@@ -1,6 +1,4 @@
-﻿using Messaging.Tests.Domain;
-
-namespace Messaging.Domain
+﻿namespace Messaging.Domain
 {
     public class TimelineMessageProjections
     {
