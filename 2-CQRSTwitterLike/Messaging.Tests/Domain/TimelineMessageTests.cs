@@ -23,7 +23,7 @@ namespace Messaging.Tests.Domain
             Check.That(timelineMessage.PublishDate).IsEqualTo(publishDate);
             Check.That(timelineMessage.AuthorId).IsEqualTo(authorId);
             Check.That(timelineMessage.Content).IsEqualTo(content);
-            Check.That(timelineMessage.NbRepublish).IsEqualTo(nbRepublish);
+            Check.That(timelineMessage._nbRepublish).IsEqualTo(nbRepublish);
         }
 
         [Test]

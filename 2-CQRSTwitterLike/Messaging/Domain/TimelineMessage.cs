@@ -1,22 +1,38 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Messaging.Tests.Domain;
 
 namespace Messaging.Domain
 {
-    public struct TimelineMessage
+    public struct TimelineMessage// : IEnumerable<TimelineMessage>
     {
         private readonly UserId _ownerId;
         private readonly DateTime _publishDate;
         private readonly UserId _authorId;
         private readonly string _content;
-        private readonly int _nbRepublish;
+        public int _nbRepublish
+        {
+            get;
+            set;
+        }
 
-        public TimelineMessage(UserId ownerId, DateTime publishDate, UserId authorId, string content, int nbRepublish)
+        public TimelineMessage(UserId ownerId, DateTime publishDate, UserId authorId, string content, int nbRepublish) : this()
         {
             _ownerId = ownerId;
             _publishDate = publishDate;
             _authorId = authorId;
             _content = content;
             _nbRepublish = nbRepublish;
+        }
+
+        public TimelineMessage(MessagePublished message) : this()
+        {
+            _ownerId = message.OwnerId;
+            _publishDate = message.PublishDate;
+            _authorId = message.AuthorId;
+            _content = message.Content;
+            _nbRepublish = message.NbRepublish;
         }
 
         public UserId OwnerId
@@ -39,9 +55,10 @@ namespace Messaging.Domain
             get { return _content; }
         }
 
-        public int NbRepublish
+
+        public IEnumerator GetEnumerator()
         {
-            get { return _nbRepublish; }
+            return ((IEnumerable) _content).GetEnumerator();
         }
     }
 }
