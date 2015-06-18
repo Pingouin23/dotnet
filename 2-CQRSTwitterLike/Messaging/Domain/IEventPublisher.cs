@@ -3,6 +3,5 @@
     public interface IEventPublisher
     {
         void Publish(IDomainEvent @event);
-
     }
 }

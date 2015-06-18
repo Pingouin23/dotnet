@@ -27,7 +27,6 @@ namespace Messaging.Domain
 
         public TimelineMessage(MessagePublished message) : this()
         {
-            _ownerId = message.OwnerId;
             _publishDate = message.PublishDate;
             _authorId = message.AuthorId;
             _content = message.Content;
@@ -53,7 +52,6 @@ namespace Messaging.Domain
         {
             get { return _content; }
         }
-
 
         public IEnumerator GetEnumerator()
         {

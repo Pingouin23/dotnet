@@ -11,9 +11,8 @@ namespace Messaging.Tests.Domain
         [Test]
         public void WhenHandleMessagePublished_ThenTimelineMessageIsSavedForAuthor()
         {
-            UserId userid1 = new UserId("quentin");
             UserId userid2 = new UserId("audrey");
-            var messagePublished = new MessagePublished(userid1, DateTime.Now, userid2, "Salut", 1);
+            var messagePublished = new MessagePublished(DateTime.Now, userid2, "Salut", 1);
             // TODO : FakeTimelineRepository is a fake implementation of interface for tests purpose only -> keep it in test assembly
             var timelineMessageRepositoryFake = new FakeTimelineRepository();
             var timelineMessageProjections = new TimelineMessageProjections(timelineMessageRepositoryFake);
@@ -27,9 +26,8 @@ namespace Messaging.Tests.Domain
         [Test]
         public void WhenHandleMessageRePublished()
         {
-            UserId userid1 = new UserId("quentin");
             UserId userid2 = new UserId("audrey");
-            var messagePublished = new MessagePublished(userid1, DateTime.Now, userid2, "Salut", 1);
+            var messagePublished = new MessagePublished(DateTime.Now, userid2, "Salut", 1);
             var timelineMessageRepositoryFake = new FakeTimelineRepository();
             var timelineMessageProjections = new TimelineMessageProjections(timelineMessageRepositoryFake);
 
